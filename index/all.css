@@ -1,0 +1,186 @@
+    #carouselExampleIndicators {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 2px; 
+  overflow: hidden;
+}
+
+    .carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  width: auto;
+  padding: 10px;
+  background: transparent;
+  border: none;
+}
+
+.carousel-control-prev {
+  left: 20px;
+}
+
+.carousel-control-next {
+  right: 20px;
+}
+
+.carousel-item img {
+  height: 400px;
+  width: auto;
+  object-fit: cover;
+}
+.iconArtist img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artist-item {
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.artist-item:hover {
+  transform: translateY(-5px);
+  text-decoration: none;
+  color: inherit;
+}
+
+.artist-item:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.artist-item:hover .artist-name {
+  color: #E91E63;
+  font-weight: 600;
+}
+
+.artist {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.recart {
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+a {
+  color: black;         
+  text-decoration: none; 
+}
+
+a:hover {
+  color: black;         
+  text-decoration: none;
+}
+
+.recart {
+  margin-bottom: 20px;
+}
+
+  .best-seller-header {
+            background: linear-gradient(135deg, #fecfef 0%, #fecfef 50%, #ff9a9e 100%);
+            color: #333;
+            padding: 15px 25px;
+            border-radius: 15px 15px 0 0;
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: relative;
+        }
+        
+        .best-seller-header::after {
+             content: '    ❯';     
+             font-size: 1.2rem
+        }
+        
+        .cards-container {
+            background: #B3CCE5;
+            padding: 30px;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .best-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(238, 90, 36, 0.3);
+        }
+        
+        .card-body {
+            padding: 20px;
+            
+        }
+        
+        .product-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 17px;
+        }
+        
+        .price-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .currency {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .price {
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .container-fluid {
+            max-width: 1200px;
+        }
+
+        .artist-name {
+         color: #888;          
+          font-size: 0.9rem;     
+          margin-bottom: 15px;   
+           
+}
