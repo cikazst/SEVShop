@@ -241,6 +241,27 @@ a:hover {
           margin-bottom: 15px;   
         }
 
+        /*SECTION TAMPILAN PRODUK*/
+
+        .view-produk{
+            margin-top: 40px;
+            margin-left: 80px;
+
+        }
+
+        .produk-img{
+            max-width: 480px;
+            max-height: 480px;
+            transition: all 0.3s ease;
+        }
+
+
+
+
+
+
+        /*FOOTER (HARUS DIBAWAH)*/
+
 .footer {
             background: linear-gradient(135deg, #a8c8ec 0%, #7fb3d3 100%);
             padding: 40px 20px 20px 20px;

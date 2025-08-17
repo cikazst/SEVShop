@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEV Shop Produk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="all.css">
+
+    <style>
+       .product-info {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        .nama-artis {
+            font-size: 18px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .nama-produk {
+            font-size: 16px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .harga-produk {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .beli {
+            margin-bottom: 25px;
+        }
+
+        .label-barang {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .kontrol-barang {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .btn-stok {
+            width: 35px;
+            height: 35px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-stok:hover {
+            border-color: #4A90E2;
+            color: #4A90E2;
+        }
+
+        .input-stok {
+            width: 60px;
+            height: 35px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .total-harga {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+<nav class="navbar navbar-light shadow sticky-top">
+      <div class="container d-flex align-items-center justify-content-between">
+
+    <!-- Logo -->
+    <a class="navbar-brand m-0">
+      <img src="/logo/Shopnavbar-removebg-preview.png" alt="Logo" width="auto" height="45">
+    </a>
+
+    <!-- Search bar -->
+    <form class="flex-grow-1 mx-4" style="max-width: auto;">
+      <div class="position-relative">
+        <i class="searh-icon bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+        <input type="search" class="form-input form-control rounded-pill bg-white border-0 shadow-sm ps-5" 
+               placeholder="Search Product or Artist" 
+               aria-label="Search">
+      </div>
+    </form>
+    
+    <div class="d-flex align-items-center gap-3" style="height: 40px;">
+      <a href="#" class="text-dark fs-5 d-flex align-items-center position-relative" title="Wishlist">
+        <i class="bi bi-heart"></i>
+        <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">3</span> -->
+      </a>
+      <a href="#" class="cart-button text-dark fs-4 d-flex align-items-center position-relative" title="Cart">
+        <i class="bi bi-cart2"></i>
+
+        <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">2</span> -->
+      </a>
+      <a href="#" class="text-dark text-decoration-none fw-semibold fs-6 d-flex align-items-center px-3 py-2 rounded-pill border" 
+         style="border-color: #333 !important; transition: all 0.2s ease;"
+         onmouseover="this.style.backgroundColor='whi'; this.style.color='white';"
+         onmouseout="this.style.backgroundColor='transparent'; this.style.color='#333';">
+        Log In
+      </a>
+    </div>
+
+     </div>
+</nav>
+
+/* Main content */
+
+<div class="view-produk container ">
+    <div class="row">
+        <div class="produk-img col-md-6">
+            <img src="/produk cover/dream gbttf.png" alt="go back to the future" class="img-fluid rounded shadow ">
+        </div>
+        <div class="product-info col-md-6">
+            <div class="nama-artis">NCT DREAM</div>
+            <div class="nama-produk">'Go Back To The Future' (Ultimate Park Ver.)
+            </div>
+            <div class="tag-idr">IDR</div>
+            <div class="harga-produk"> Rp. 270.00,00 </div>
+            <div class="beli">
+              <div class="label-barang">Set</div>
+                    <div class="kontrol-barang">
+                        <button class="btn-stok" onclick="decreaseQuantity()">-</button>
+                        <input type="number" class="input-stok" id="stok" value="1" min="1">
+                        <button class="btn-stok" onclick="increaseQuantity()">+</button>
+                        <span style="margin-left: auto; font-weight: 600;"> Rp. 270.00,00</span>
+                    </div>
+            </div>
+             <div class="total-harga">
+                    <div class="selected-info">1 barang dipilih<br><span style="font-size: 12px; color: #999;">Anda bisa membeli barang lebih dari 5.</span></div>
+                    <div style="font-size: 20px; font-weight: 700;">Rp. 270.000,00</div>
+              </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
