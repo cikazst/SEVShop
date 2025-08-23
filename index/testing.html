@@ -3,110 +3,500 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Review</title>
+  <title>Product Review with Avatars</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * {margin:0;padding:0;box-sizing:border-box}
-    body {font-family:Arial,sans-serif;background:#f0f0f0;padding:20px}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background: #f0f5ff; 
+      padding: 20px; 
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    
     .review-container {
-      max-width:600px;margin:auto;background:linear-gradient(135deg,#a8c8ec,#7fb3d3);
-      border-radius:15px;padding:30px;box-shadow:0 8px 25px rgba(0,0,0,.15)
+      width: 100%;
+      max-width: 650px;
+      background: linear-gradient(135deg, #a8c8ec 0%, #7fb3d3 100%);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
     }
-    .review-title {text-align:center;font-size:24px;font-weight:bold;color:#333;margin-bottom:25px}
-    .rating-summary {text-align:center;margin-bottom:30px}
-    .rating-number {font-size:36px;font-weight:bold;color:#333}
-    .rating-subtitle {font-size:14px;color:#666;margin:10px 0 20px}
-    .rating-bars {max-width:300px;margin:auto}
-    .rating-row {display:flex;align-items:center;margin-bottom:8px;font-size:14px}
-    .stars {display:flex;margin-right:10px;width:100px}
-    .star {color:#ffd700;font-size:16px;margin-right:2px}
-    .star.empty {color:#ddd}
-    .rating-bar {flex:1;height:8px;background:#e0e0e0;border-radius:4px;margin-right:10px;overflow:hidden}
-    .rating-fill {height:100%;background:#ffd700;border-radius:4px}
-    .rating-count {font-size:12px;color:#666;width:25px;text-align:right}
-    .reviews-list {margin-top:30px}
+    
+    .review-title {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .review-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: #2c3e50;
+      border-radius: 2px;
+    }
+    
+    .rating-summary {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,.05);
+    }
+    
+    .overall-rating {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .rating-number {
+      font-size: 42px;
+      font-weight: 800;
+      color: #2c3e50;
+      margin-right: 15px;
+    }
+    
+    .rating-stars {
+      display: flex;
+      margin-right: 15px;
+    }
+    
+    .rating-stars .star {
+      color: #ffc107;
+      font-size: 24px;
+      margin-right: 3px;
+    }
+    
+    .rating-subtitle {
+      font-size: 15px;
+      color: #666;
+      margin-top: 5px;
+    }
+    
+    .rating-bars {
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .rating-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    
+    .stars-label {
+      display: flex;
+      width: 90px;
+      margin-right: 12px;
+    }
+    
+    .star {
+      color: #ffd700;
+      font-size: 16px;
+      margin-right: 2px;
+    }
+    
+    .star.empty {
+      color: #ddd;
+    }
+    
+    .rating-bar {
+      flex: 1;
+      height: 10px;
+      background: #e0e0e0;
+      border-radius: 5px;
+      margin-right: 12px;
+      overflow: hidden;
+    }
+    
+    .rating-fill {
+      height: 100%;
+      background: linear-gradient(to right, #ffd700, #ffc107);
+      border-radius: 5px;
+      transition: width 1s ease-out;
+    }
+    
+    .rating-count {
+      font-size: 13px;
+      color: #555;
+      width: 35px;
+      text-align: right;
+      font-weight: 600;
+    }
+    
+    .reviews-list {
+      margin-top: 30px;
+    }
+    
     .review-item {
-      background:rgba(255,255,255,.8);border-radius:12px;padding:20px;
-      margin-bottom:15px;backdrop-filter:blur(5px)
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 5px 15px rgba(0,0,0,.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .review-header {display:flex;align-items:center;margin-bottom:12px}
+    
+    .review-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.1);
+    }
+    
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
     .reviewer-avatar {
-      width:40px;height:40px;border-radius:50%;background:#6fa8d4;color:#fff;
-      display:flex;align-items:center;justify-content:center;font-weight:bold;margin-right:12px
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #6fa8d4;
+      margin-right: 15px;
     }
-    .reviewer-name {font-weight:bold;color:#333}
-    .reviewer-stars .star {font-size:14px}
-    .review-date {color:#666;font-size:12px;margin-left:auto}
-    .review-text {color:#555;line-height:1.5;font-size:14px}
-    .read-more-btn {text-align:center;margin-top:20px}
+    
+    .reviewer-info {
+      flex: 1;
+    }
+    
+    .reviewer-name {
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 3px;
+    }
+    
+    .reviewer-stars {
+      display: flex;
+    }
+    
+    .reviewer-stars .star {
+      font-size: 15px;
+      color: #ffc107;
+    }
+    
+    .review-date {
+      color: #777;
+      font-size: 13px;
+    }
+    
+    .review-text {
+      color: #444;
+      line-height: 1.6;
+      font-size: 15px;
+      position: relative;
+    }
+    
+    
+    .review-helpful {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .helpful-btn {
+      background: #f0f2f5;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 15px;
+      font-size: 13px;
+      color: #555;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s;
+      margin-right: 10px;
+    }
+    
+    .helpful-btn:hover {
+      background: #e4e6eb;
+    }
+    
+    .helpful-btn i {
+      margin-right: 5px;
+      font-size: 12px;
+    }
+    
+    .helpful-count {
+      font-size: 13px;
+      color: #777;
+    }
+    
+    .read-more-btn {
+      text-align: center;
+      margin-top: 30px;
+    }
+    
     .read-more-btn button {
-      background:#4a90e2;color:#fff;border:none;padding:12px 30px;border-radius:25px;
-      font-size:14px;font-weight:bold;cursor:pointer;transition:.3s
+      background: #4a90e2;
+      color: #fff;
+      border: none;
+      padding: 14px 35px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
     }
-    .read-more-btn button:hover {background:#357abd}
+    
+    .read-more-btn button:hover {
+      background: #357abd;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+    }
+    
+    .review-filter {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-size: 14px;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .filter-btn.active, .filter-btn:hover {
+      background: #4a90e2;
+      color: white;
+    }
+    
+    @media (max-width: 600px) {
+      .review-container {
+        padding: 20px;
+      }
+      
+      .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .review-date {
+        margin-top: 10px;
+        margin-left: 65px;
+      }
+      
+      .rating-summary {
+        padding: 15px;
+      }
+      
+      .overall-rating {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .rating-number {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="review-container">
-    <h2 class="review-title">Product Review</h2>
+    <h2 class="review-title">Customer Reviews</h2>
 
     <!-- Rating Summary -->
     <div class="rating-summary">
-      <div class="rating-number">5.0</div>
-      <div class="rating-subtitle">Based on 3 Reviews</div>
+      <div class="overall-rating">
+        <div class="rating-number">4.8</div>
+        <div>
+          <div class="rating-stars">
+            <span class="star"><i class="fas fa-star"></i></span>
+            <span class="star"><i class="fas fa-star"></i></span>
+            <span class="star"><i class="fas fa-star"></i></span>
+            <span class="star"><i class="fas fa-star"></i></span>
+            <span class="star"><i class="fas fa-star-half-alt"></i></span>
+          </div>
+          <div class="rating-subtitle">Based on 24 Reviews</div>
+        </div>
+      </div>
 
       <div class="rating-bars">
-        <!-- contoh bar rating -->
         <div class="rating-row">
-          <div class="stars">★★★★★</div>
-          <div class="rating-bar"><div class="rating-fill" style="width:100%"></div></div>
-          <div class="rating-count">(3)</div>
+          <div class="stars-label">5 <span class="star"><i class="fas fa-star"></i></span></div>
+          <div class="rating-bar"><div class="rating-fill" style="width: 70%"></div></div>
+          <div class="rating-count">(16)</div>
         </div>
         <div class="rating-row">
-          <div class="stars">★★★★☆</div>
-          <div class="rating-bar"><div class="rating-fill" style="width:0%"></div></div>
+          <div class="stars-label">4 <span class="star"><i class="fas fa-star"></i></span></div>
+          <div class="rating-bar"><div class="rating-fill" style="width: 20%"></div></div>
+          <div class="rating-count">(5)</div>
+        </div>
+        <div class="rating-row">
+          <div class="stars-label">3 <span class="star"><i class="fas fa-star"></i></span></div>
+          <div class="rating-bar"><div class="rating-fill" style="width: 8%"></div></div>
+          <div class="rating-count">(2)</div>
+        </div>
+        <div class="rating-row">
+          <div class="stars-label">2 <span class="star"><i class="fas fa-star"></i></span></div>
+          <div class="rating-bar"><div class="rating-fill" style="width: 4%"></div></div>
+          <div class="rating-count">(1)</div>
+        </div>
+        <div class="rating-row">
+          <div class="stars-label">1 <span class="star"><i class="fas fa-star"></i></span></div>
+          <div class="rating-bar"><div class="rating-fill" style="width: 0%"></div></div>
           <div class="rating-count">(0)</div>
         </div>
-        <!-- tambahin bar lain kalau perlu -->
       </div>
+    </div>
+
+    <!-- Filter Options -->
+    <div class="review-filter">
+      <button class="filter-btn active">All Reviews</button>
+      <button class="filter-btn">5 Stars</button>
+      <button class="filter-btn">4 Stars</button>
+      <button class="filter-btn">3 Stars</button>
+      <button class="filter-btn">With Photos</button>
     </div>
 
     <!-- Reviews -->
     <div class="reviews-list">
       <div class="review-item">
         <div class="review-header">
-          <div class="reviewer-avatar">T</div>
-          <div>
-            <div class="reviewer-name">Tasya</div>
-            <div class="reviewer-stars">★★★★★</div>
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=128&q=80" alt="Sarah" class="reviewer-avatar">
+          <div class="reviewer-info">
+            <div class="reviewer-name">Sarah Johnson</div>
+            <div class="reviewer-stars">
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
           </div>
-          <div class="review-date">12 Mei 2025</div>
+          <div class="review-date">June 12, 2023</div>
         </div>
         <div class="review-text">
-          Official and 100% authentic. As a collector, I really appreciate the care in packaging.
-          Everything came safely and even with a freebie!
+          This product exceeded my expectations! The quality is outstanding and it arrived much faster than I anticipated. I would definitely recommend this to my friends and will purchase again in the future.
+        </div>
+        <div class="review-helpful">
+          <button class="helpful-btn"><i class="fas fa-thumbs-up"></i> Helpful</button>
+          <span class="helpful-count">18 people found this helpful</span>
         </div>
       </div>
 
       <div class="review-item">
         <div class="review-header">
-          <div class="reviewer-avatar">T</div>
-          <div>
-            <div class="reviewer-name">Tasya</div>
-            <div class="reviewer-stars">★★★★★</div>
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=128&q=80" alt="Michael" class="reviewer-avatar">
+          <div class="reviewer-info">
+            <div class="reviewer-name">Michael Chen</div>
+            <div class="reviewer-stars">
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="far fa-star"></i></span>
+            </div>
           </div>
-          <div class="review-date">12 Mei 2025</div>
+          <div class="review-date">June 10, 2023</div>
         </div>
         <div class="review-text">
-          Official and 100% authentic. As a collector, I really appreciate the care in packaging.
-          Everything came safely and even with a freebie!
+          Very good product overall. The packaging was excellent and it arrived on time. The only reason I'm not giving 5 stars is because the color was slightly different than shown in the pictures, but it's still nice.
+        </div>
+        <div class="review-helpful">
+          <button class="helpful-btn"><i class="fas fa-thumbs-up"></i> Helpful</button>
+          <span class="helpful-count">7 people found this helpful</span>
+        </div>
+      </div>
+
+      <div class="review-item">
+        <div class="review-header">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=128&q=80" alt="Jessica" class="reviewer-avatar">
+          <div class="reviewer-info">
+            <div class="reviewer-name">Jessica Martinez</div>
+            <div class="reviewer-stars">
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+          <div class="review-date">June 8, 2023</div>
+        </div>
+        <div class="review-text">
+          Absolutely love this product! As a collector, I really appreciate the care in packaging. Everything came safely and even included a freebie! Will definitely be ordering more items from this seller.
+        </div>
+        <div class="review-helpful">
+          <button class="helpful-btn"><i class="fas fa-thumbs-up"></i> Helpful</button>
+          <span class="helpful-count">22 people found this helpful</span>
         </div>
       </div>
     </div>
 
     <!-- Read More -->
     <div class="read-more-btn">
-      <button onclick="alert('Read more functionality')">Read more</button>
+      <button onclick="loadMoreReviews()">Load More Reviews</button>
     </div>
   </div>
+
+  <script>
+    // Animation for rating bars
+    document.addEventListener('DOMContentLoaded', function() {
+      const ratingFills = document.querySelectorAll('.rating-fill');
+      ratingFills.forEach(fill => {
+        const width = fill.style.width;
+        fill.style.width = '0';
+        setTimeout(() => {
+          fill.style.width = width;
+        }, 300);
+      });
+    });
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        // Actual filtering implementation would go here
+        console.log('Filtering by: ' + this.textContent);
+      });
+    });
+
+    // Helpful button functionality
+    const helpfulButtons = document.querySelectorAll('.helpful-btn');
+    helpfulButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        this.innerHTML = '<i class="fas fa-check"></i> Helpful';
+        this.style.background = '#e1f7e3';
+        this.style.color = '#2e7d32';
+      });
+    });
+
+    // Load more reviews function
+    function loadMoreReviews() {
+      alert('Loading more reviews...');
+      // Implementation would fetch and display more reviews
+    }
+  </script>
 </body>
 </html>

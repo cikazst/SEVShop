@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEV Shop Produk</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -205,10 +206,266 @@
       font-size: 14px;
     }
 
-    .kotak-review{
-      margin-top: 40px;
-      margin-left: 0px;
-      background-color: #9ac1e9 ;
+      .review-container {
+      align-items: center;
+      width: 100%;
+      max-width: 1440px;
+      background: linear-gradient(135deg, #a8c8ec 0%, #7fb3d3 100%);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+    
+    .review-title {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .rating-summary {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,.05);
+    }
+    
+    .overall-rating {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .rating-number {
+      font-size: 42px;
+      font-weight: 800;
+      color: #2c3e50;
+      margin-right: 15px;
+    }
+    
+    .rating-stars {
+      display: flex;
+      margin-right: 15px;
+    }
+    
+    .rating-stars .star {
+      color: #ffc107;
+      font-size: 24px;
+      margin-right: 3px;
+    }
+    
+    .rating-subtitle {
+      font-size: 15px;
+      color: #666;
+      margin-top: 5px;
+    }
+    
+    .rating-bars {
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .rating-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    
+    .stars-label {
+      display: flex;
+      width: 90px;
+      margin-right: 12px;
+    }
+    
+    .star {
+      color: #ffd700;
+      font-size: 16px;
+      margin-right: 2px;
+    }
+    
+    .star.empty {
+      color: #ddd;
+    }
+    
+    .rating-bar {
+      flex: 1;
+      height: 10px;
+      background: #e0e0e0;
+      border-radius: 5px;
+      margin-right: 12px;
+      overflow: hidden;
+    }
+    
+    .rating-fill {
+      height: 100%;
+      background: linear-gradient(to right, #ffd700, #ffc107);
+      border-radius: 5px;
+      transition: width 1s ease-out;
+    }
+    
+    .rating-count {
+      font-size: 13px;
+      color: #555;
+      width: 35px;
+      text-align: right;
+      font-weight: 600;
+    }
+    
+    .reviews-list {
+      margin-top: 30px;
+    }
+    
+    .review-item {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 5px 15px rgba(0,0,0,.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .review-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.1);
+    }
+    
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .reviewer-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #6fa8d4;
+      margin-right: 15px;
+    }
+    
+    .reviewer-info {
+      flex: 1;
+    }
+    
+    .reviewer-name {
+      font-weight: 700;
+      color: #2c3e50;
+      text-align: left;
+      margin-bottom: 3px;
+    }
+    
+    .reviewer-stars {
+      display: flex;
+    }
+    
+    .reviewer-stars .star {
+      font-size: 15px;
+      color: #ffc107;
+    }
+    
+    .review-date {
+      color: #777;
+      font-size: 13px;
+    }
+    
+    .review-text {
+      color: #444;
+      line-height: 1.6;
+      font-size: 15px;
+      text-align: left ;
+    }
+    
+    
+    .review-helpful {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .helpful-btn {
+      background: #f0f2f5;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 15px;
+      font-size: 13px;
+      color: #555;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s;
+      margin-right: 10px;
+    }
+    
+    .helpful-btn:hover {
+      background: #e4e6eb;
+    }
+    
+    .helpful-btn i {
+      margin-right: 5px;
+      font-size: 12px;
+    }
+    
+    .helpful-count {
+      font-size: 13px;
+      color: #777;
+    }
+    
+    .read-more-btn {
+      text-align: center;
+      margin-top: 30px;
+    }
+    
+    .read-more-btn button {
+      background: #4a90e2;
+      color: #fff;
+      border: none;
+      padding: 14px 35px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+    }
+    
+    .read-more-btn button:hover {
+      background: #357abd;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+    }
+    
+    .review-filter {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-size: 14px;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .filter-btn.active, .filter-btn:hover {
+      background: #4a90e2;
+      color: white;
     }
     </style>
 </head>
@@ -311,7 +568,7 @@
   </div>
 
   <!-- Tabel produk -->
-  <table class="table table-bordered mb-4">
+  <table class="table table-bordered p-3 mb-4">
     <tr><td><strong>Nama Produk</strong></td><td>	'Go Back To The Future' (Ultimate Park Ver.)</td></tr>
     <tr><td><strong>Label</strong></td><td>SM</td></tr>
     <tr><td><strong>Tanggal Rilis</strong></td><td>2025-04-21</td></tr>
@@ -334,10 +591,208 @@
     <img src="/produk cover/gbttf det ult pack.jpg" class="img-fluid mb-3" alt="Detail Produk">
 
     <!-- komen repiuw -->
-     <div class="kotak-review col-md-12 d-flex flex-wrap shadow p-4 rounded ">
+    <div class="review-container mt-5 ">
+    <h2 class="review-title">Customer Reviews</h2>
 
-     </div>
-     
+    <!-- Rating Summary -->
+    <div class="rating-summary">
+      <div class="overall-rating">
+        <div class="rating-number">4.8</div>
+        <div>
+          <div class="rating-stars">
+            <span class="star"><i class="fas fa-star"></i></span>
+            <span class="star"><i class="fas fa-star"></i></span>
+            <span class="star"><i class="fas fa-star"></i></span>
+            <span class="star"><i class="fas fa-star"></i></span>
+            <span class="star"><i class="fas fa-star-half-alt"></i></span>
+          </div>
+          <div class="rating-subtitle">Based on 24 Reviews</div>
+        </div>
+      </div>
+
+      <div class="rating-bars">
+        <div class="rating-row">
+          <div class="stars-label">5 <span class="star"><i class="fas fa-star"></i></span></div>
+          <div class="rating-bar"><div class="rating-fill" style="width: 70%"></div></div>
+          <div class="rating-count">(16)</div>
+        </div>
+        <div class="rating-row">
+          <div class="stars-label">4 <span class="star"><i class="fas fa-star"></i></span></div>
+          <div class="rating-bar"><div class="rating-fill" style="width: 20%"></div></div>
+          <div class="rating-count">(5)</div>
+        </div>
+        <div class="rating-row">
+          <div class="stars-label">3 <span class="star"><i class="fas fa-star"></i></span></div>
+          <div class="rating-bar"><div class="rating-fill" style="width: 8%"></div></div>
+          <div class="rating-count">(2)</div>
+        </div>
+        <div class="rating-row">
+          <div class="stars-label">2 <span class="star"><i class="fas fa-star"></i></span></div>
+          <div class="rating-bar"><div class="rating-fill" style="width: 4%"></div></div>
+          <div class="rating-count">(1)</div>
+        </div>
+        <div class="rating-row">
+          <div class="stars-label">1 <span class="star"><i class="fas fa-star"></i></span></div>
+          <div class="rating-bar"><div class="rating-fill" style="width: 0%"></div></div>
+          <div class="rating-count">(0)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Options -->
+    <div class="review-filter">
+      <button class="filter-btn active">All Reviews</button>
+      <button class="filter-btn">5 Stars</button>
+      <button class="filter-btn">4 Stars</button>
+      <button class="filter-btn">3 Stars</button>
+      <button class="filter-btn">With Photos</button>
+    </div>
+
+    <!-- Ripuw 1 -->
+    <div class="reviews-list">
+      <div class="review-item">
+        <div class="review-header">
+          <img src="/img/ava1.jpeg" alt="" class="reviewer-avatar">
+          <div class="reviewer-info">
+            <div class="reviewer-name">orang keren</div>
+            <div class="reviewer-stars">
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+          <div class="review-date">June 12, 2023</div>
+        </div>
+        <div class="review-text">
+          freebiesnya lengkap, photocardnya bagus banget, cuma minusnya pas dateng boxnya agak penyok dikit
+        </div>
+        <div class="review-helpful">
+          <button class="helpful-btn"><i class="fas fa-thumbs-up"></i> Helpful</button>
+          <span class="helpful-count">18 people found this helpful</span>
+        </div>
+      </div>
+
+<!-- review 2 -->
+      <div class="review-item">
+        <div class="review-header">
+          <img src="/img/ava2.jpeg" alt="" class="reviewer-avatar">
+          <div class="reviewer-info">
+            <div class="reviewer-name">manysa</div>
+            <div class="reviewer-stars">
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="far fa-star"></i></span>
+            </div>
+          </div>
+          <div class="review-date">June 10, 2023</div>
+        </div>
+        <div class="review-text">
+         bagus, barang sesuai deskripsi, packing rapi, pengiriman cepat
+        </div>
+        <div class="review-helpful">
+          <button class="helpful-btn"><i class="fas fa-thumbs-up"></i> Helpful</button>
+          <span class="helpful-count">7 people found this helpful</span>
+        </div>
+      </div>
+<!-- ripiuw 3 -->
+      <div class="review-item">
+        <div class="review-header">
+          <img src="/img/ava2.jpeg" alt="" class="reviewer-avatar">
+          <div class="reviewer-info">
+            <div class="reviewer-name">orang aring</div>
+            <div class="reviewer-stars">
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+              <span class="star"><i class="fas fa-star"></i></span>
+            </div>
+          </div>
+          <div class="review-date">June 8, 2023</div>
+        </div>
+        <div class="review-text">
+        keren, aku dapet wishlist aku. makasih banget sev shop
+        </div>
+        <div class="review-helpful">
+          <button class="helpful-btn"><i class="fas fa-thumbs-up"></i> Helpful</button>
+          <span class="helpful-count">22 people found this helpful</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Read More -->
+    <div class="read-more-btn">
+      <button onclick="loadMoreReviews()">Load More Reviews</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+   <footer class="footer mt-5">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="#" class="logo">
+                    <img src="/logo/Shop-removebg-preview.png" alt="SEV Shop Logo">
+                </a>
+            </div>
+
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>SEV Shop adalah tempat andalan untuk official merchandise K-pop.
+ Kami berkomitmen untuk menghadirkan merchandise terbaik dan terjamin langsung ke tanganmu.</p>
+                </div>
+
+                <div class="footer-section">
+                    <ul>
+                        <li><a href="#refund">Layanan Pelanggan</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#privacy">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <ul>
+                        <li><a href="#refund">Kebijakan Refund</a></li>
+                        <li><a href="#order">Cara Memesan</a></li>
+                        <li><a href="#terms">Syarat dan Ketentuan</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <p>Contact Us</p>
+                    <div class="contact-info">
+                        <p>SEVShop@gmail.com</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="footer-sosial">
+                        <div class="social-icons">
+                        <a href="" class="social-icon ">
+                            <img src="/logo/instagram.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
+                        <a href="#" class="social-icon ">
+                            <img src="/logo/icons8-shopee-50.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
+                        </a>
+                        <a href="" class="social-icon ">
+                            <img src="/logo/twitter-alt.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <img src="/logo/social.png" alt="" srcset="" style="width: 50px; height: auto;"></a>
+                        </a>
+                    </div>
+            </div>
+           
+
+            <div class="footer-bottom">
+                <div class="location">Based on Banyuwangi, East Java</div>
+                <div>© 2025 SEV Shop. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
 
 
    
@@ -368,6 +823,45 @@
     document.getElementById('total-harga').textContent = 
         `Rp. ${totalPrice.toLocaleString('id-ID')}.000,00`;
 }
+
+// Animation for rating bars
+    document.addEventListener('DOMContentLoaded', function() {
+      const ratingFills = document.querySelectorAll('.rating-fill');
+      ratingFills.forEach(fill => {
+        const width = fill.style.width;
+        fill.style.width = '0';
+        setTimeout(() => {
+          fill.style.width = width;
+        }, 300);
+      });
+    });
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        // Actual filtering implementation would go here
+        console.log('Filtering by: ' + this.textContent);
+      });
+    });
+
+    // Helpful button functionality
+    const helpfulButtons = document.querySelectorAll('.helpful-btn');
+    helpfulButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        this.innerHTML = '<i class="fas fa-check"></i> Helpful';
+        this.style.background = '#e1f7e3';
+        this.style.color = '#2e7d32';
+      });
+    });
+
+    // Load more reviews function
+    function loadMoreReviews() {
+      alert('Loading more reviews...');
+      // Implementation would fetch and display more reviews
+    }
 
     
 
