@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Review</title>
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box}
+    body {font-family:Arial,sans-serif;background:#f0f0f0;padding:20px}
+    .review-container {
+      max-width:600px;margin:auto;background:linear-gradient(135deg,#a8c8ec,#7fb3d3);
+      border-radius:15px;padding:30px;box-shadow:0 8px 25px rgba(0,0,0,.15)
+    }
+    .review-title {text-align:center;font-size:24px;font-weight:bold;color:#333;margin-bottom:25px}
+    .rating-summary {text-align:center;margin-bottom:30px}
+    .rating-number {font-size:36px;font-weight:bold;color:#333}
+    .rating-subtitle {font-size:14px;color:#666;margin:10px 0 20px}
+    .rating-bars {max-width:300px;margin:auto}
+    .rating-row {display:flex;align-items:center;margin-bottom:8px;font-size:14px}
+    .stars {display:flex;margin-right:10px;width:100px}
+    .star {color:#ffd700;font-size:16px;margin-right:2px}
+    .star.empty {color:#ddd}
+    .rating-bar {flex:1;height:8px;background:#e0e0e0;border-radius:4px;margin-right:10px;overflow:hidden}
+    .rating-fill {height:100%;background:#ffd700;border-radius:4px}
+    .rating-count {font-size:12px;color:#666;width:25px;text-align:right}
+    .reviews-list {margin-top:30px}
+    .review-item {
+      background:rgba(255,255,255,.8);border-radius:12px;padding:20px;
+      margin-bottom:15px;backdrop-filter:blur(5px)
+    }
+    .review-header {display:flex;align-items:center;margin-bottom:12px}
+    .reviewer-avatar {
+      width:40px;height:40px;border-radius:50%;background:#6fa8d4;color:#fff;
+      display:flex;align-items:center;justify-content:center;font-weight:bold;margin-right:12px
+    }
+    .reviewer-name {font-weight:bold;color:#333}
+    .reviewer-stars .star {font-size:14px}
+    .review-date {color:#666;font-size:12px;margin-left:auto}
+    .review-text {color:#555;line-height:1.5;font-size:14px}
+    .read-more-btn {text-align:center;margin-top:20px}
+    .read-more-btn button {
+      background:#4a90e2;color:#fff;border:none;padding:12px 30px;border-radius:25px;
+      font-size:14px;font-weight:bold;cursor:pointer;transition:.3s
+    }
+    .read-more-btn button:hover {background:#357abd}
+  </style>
+</head>
+<body>
+  <div class="review-container">
+    <h2 class="review-title">Product Review</h2>
+
+    <!-- Rating Summary -->
+    <div class="rating-summary">
+      <div class="rating-number">5.0</div>
+      <div class="rating-subtitle">Based on 3 Reviews</div>
+
+      <div class="rating-bars">
+        <!-- contoh bar rating -->
+        <div class="rating-row">
+          <div class="stars">★★★★★</div>
+          <div class="rating-bar"><div class="rating-fill" style="width:100%"></div></div>
+          <div class="rating-count">(3)</div>
+        </div>
+        <div class="rating-row">
+          <div class="stars">★★★★☆</div>
+          <div class="rating-bar"><div class="rating-fill" style="width:0%"></div></div>
+          <div class="rating-count">(0)</div>
+        </div>
+        <!-- tambahin bar lain kalau perlu -->
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="reviews-list">
+      <div class="review-item">
+        <div class="review-header">
+          <div class="reviewer-avatar">T</div>
+          <div>
+            <div class="reviewer-name">Tasya</div>
+            <div class="reviewer-stars">★★★★★</div>
+          </div>
+          <div class="review-date">12 Mei 2025</div>
+        </div>
+        <div class="review-text">
+          Official and 100% authentic. As a collector, I really appreciate the care in packaging.
+          Everything came safely and even with a freebie!
+        </div>
+      </div>
+
+      <div class="review-item">
+        <div class="review-header">
+          <div class="reviewer-avatar">T</div>
+          <div>
+            <div class="reviewer-name">Tasya</div>
+            <div class="reviewer-stars">★★★★★</div>
+          </div>
+          <div class="review-date">12 Mei 2025</div>
+        </div>
+        <div class="review-text">
+          Official and 100% authentic. As a collector, I really appreciate the care in packaging.
+          Everything came safely and even with a freebie!
+        </div>
+      </div>
+    </div>
+
+    <!-- Read More -->
+    <div class="read-more-btn">
+      <button onclick="alert('Read more functionality')">Read more</button>
+    </div>
+  </div>
+</body>
+</html>
