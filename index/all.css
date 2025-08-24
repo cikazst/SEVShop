@@ -243,20 +243,7 @@ a:hover {
 
         /*SECTION TAMPILAN PRODUK*/
 
-        .view-produk{
-            margin-top: 40px;
-        }
-
-        .view-produk .row {
-            justify-content: center;
-            align-items: center;
-    }
-
-        .produk-img{
-            max-width: 450px;
-            max-height: 450px;
-            transition: all 0.3s ease;
-        }
+      
 
 
 
@@ -272,7 +259,7 @@ a:hover {
         }
 
         .footer-container {
-            max-width: 1200px;
+            max-width: 1440px;
             margin: 0 auto;
         }
 
