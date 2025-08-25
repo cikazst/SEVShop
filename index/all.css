@@ -321,7 +321,7 @@ a:hover {
         /*SECTION TAMPILAN PRODUK*/
         /* PRODUK PAGE CSS */
 
-                .view-produk{
+         .view-produk{
             margin-top: 40px;
             margin-bottom: 40px;
         }
@@ -786,6 +786,10 @@ a:hover {
       background: #4a90e2;
       color: white;
     }
+
+    .container-produk-reccomend {
+           max-width: 100%;
+        }
 
       
 
