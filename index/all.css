@@ -231,8 +231,10 @@ a:hover {
             font-size: 1.2rem;
         }
         
-        .container-fluid {
-            max-width: 1200px;
+        .container-produk-display {
+           max-width: 80%;
+           margin-left: 10%;
+            margin-right: 10%;
         }
 
         .artist-name {
@@ -246,6 +248,7 @@ a:hover {
 
                 .view-produk{
             margin-top: 40px;
+            margin-bottom: 40px;
         }
 
         .view-produk .row {
@@ -709,10 +712,6 @@ a:hover {
       color: white;
     }
 
-        .footer-container {
-            max-width: 1440px;
-            margin: 0 auto;
-        }
       
 
         /*FOOTER (HARUS DIBAWAH)*/
@@ -721,14 +720,18 @@ a:hover {
             background: linear-gradient(135deg, #a8c8ec 0%, #7fb3d3 100%);
             padding: 40px 20px 20px 20px;
             color: #000000;
+            margin-bottom: 0%;
+            max-width: 100%;
         }
 
         .footer-container {
-            max-width: 1440px;
+            max-width: 100% !important;
             margin: 0 auto;
+            
         }
 
         .footer-logo {
+          margin-top: 0%;
              display: flex;
             justify-content: center;
             align-items: center;
