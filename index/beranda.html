@@ -18,42 +18,35 @@
 
 </head>
 <body>
-   <nav class="navbar navbar-light shadow sticky-top">
-  <div class="container d-flex align-items-center justify-content-between">
+   <nav class="navbar">
+  <div class="kotak-navbar">
 
     <!-- Logo -->
-    <a class="navbar-brand m-0">
+    <a class="navbar-brand" href="beranda.html">
       <img src="/logo/Shopnavbar-removebg-preview.png" alt="Logo" width="auto" height="45">
     </a>
 
     <!-- Search bar -->
-    <form class="flex-grow-1 mx-4" style="max-width: auto;">
-      <div class="position-relative">
-        <i class="searh-icon bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
-        <input type="search" class="form-input form-control rounded-pill bg-white border-0 shadow-sm ps-5" 
-               placeholder="Search Product or Artist" 
-               aria-label="Search">
-      </div>
-    </form>
-    
-    <div class="d-flex align-items-center gap-3" style="height: 40px;">
-      <a href="#" class="text-dark fs-5 d-flex align-items-center position-relative" title="Wishlist">
-        <i class="bi bi-heart"></i>
-        <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">3</span> -->
-      </a>
-      <a href="#" class="cart-button text-dark fs-4 d-flex align-items-center position-relative" title="Cart">
-        <i class="bi bi-cart2"></i>
-
-        <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">2</span> -->
-      </a>
-      <a href="login.html" class="text-dark text-decoration-none fw-semibold fs-6 d-flex align-items-center px-3 py-2 rounded-pill border" 
-         style="border-color: #333 !important; transition: all 0.2s ease;"
-         onmouseover="this.style.backgroundColor='white'; this.style.color='white';"
-         onmouseout="this.style.backgroundColor='transparent'; this.style.color='#333';">
-        Log In
-      </a>
-    </div>
-
+         <form class="search-bar">
+           <div class="search-wrap">
+             <i class="search-icon bi bi-search"></i>
+             <input type="search" class="search-input" 
+                    placeholder="Search Product or Artist" 
+                    aria-label="Search">
+           </div>
+         </form>
+         
+         <div class="navbar-options" style="height: 40px;">
+           <a href="#" class="icon-wishlist" title="Wishlist">
+             <i class="bi bi-heart"></i>
+           </a>
+           <a href="#" class="icon-cart" title="Cart">
+             <i class="bi bi-cart2"></i>
+           </a>
+           <a href="login.html" class="login-button" title="Log In">
+             Log In
+           </a>
+     </div>
   </div>
 </nav>
 
