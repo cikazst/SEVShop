@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f1f1f1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container-produk {
+            background: #B3CCE5;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 1000px;
+            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(70, 70, 70, 0.2);
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: rgb(0, 0, 0);
+            font-size: 28px;
+            font-weight:700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab.active {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab:not(.active) {
+            background: rgba(245, 229, 229, 0.575);
+            color: black;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .tab:not(.active):hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card {
+            padding: 20px;
+            text-align: center;
+            background: white;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+        width: 100%;
+        max-width: 200px;   
+        max-height: 200px;  
+        margin: 0 auto 15px; 
+        display: flex;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .product-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .product-price {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .product-amount {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .special-card {
+            background: #F7CAC9;
+            color: rgb(0, 0, 0);
+        }
+
+        .special-card .product-image {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .special-card .product-name,
+        .special-card .product-amount {
+            color: rgb(0, 0, 0);
+        }
+
+        .special-card .product-price {
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .tabs {
+                flex-wrap: wrap;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-produk">
+        <div class="header">
+            <h1>PRODUK</h1>
+            <div class="tabs">
+                <button class="tab active" data-tab="merch">MERCH</button>
+                <button class="tab" data-tab="membership">MEMBERSHIP</button>
+                <button class="tab" data-tab="album">ALBUM</button>
+            </div>
+        </div>
+        
+        <div id="merch" class="tab-content">
+            <div class="product-grid">
+                <div class="product-card special-card">
+                    <div class="product-image"><img src="/produk cover/10cm doll.png" alt="" srcset=""></div>
+                    <div class="product-name">Teenieping 10cm Doll</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 260.000,00</div>
+                </div>
+                
+                <div class="product-card special-card">
+                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
+                    <div class="product-name">Photo Card Holder Set</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 220.000,00</div>
+                </div>
+                
+                <div class="product-card special-card">
+                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
+                    <div class="product-name">10cm Doll</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 260.000,00</div>
+                </div>
+                
+                <div class="product-card special-card">
+                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
+                    <div class="product-name">10cm Doll</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 260.000,00</div>
+                </div>
+                
+                <div class="product-card special-card">
+                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
+                    <div class="product-name">10cm Doll</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 260.000,00</div>
+                </div>
+                
+                <div class="product-card special-card">
+                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
+                    <div class="product-name">10cm Doll</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 260.000,00</div>
+                </div>
+                
+                <div class="product-card special-card">
+                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
+                    <div class="product-name">10cm Doll</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 260.000,00</div>
+                </div>
+                
+                <div class="product-card special-card">
+                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
+                    <div class="product-name">10cm Doll</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 260.000,00</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="membership" class="tab-content" style="display: none;">
+            <div class="product-grid">
+                <div class="product-card special-card">
+                    <div class="product-image">👑</div>
+                    <div class="product-name">VIP Membership</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 500.000,00</div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">⭐</div>
+                    <div class="product-name">Premium Membership</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 300.000,00</div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">💫</div>
+                    <div class="product-name">Basic Membership</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 150.000,00</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="album" class="tab-content" style="display: none;">
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">💿</div>
+                    <div class="product-name">Digital Album</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 100.000,00</div>
+                </div>
+                
+                <div class="product-card special-card">
+                    <div class="product-image">📀</div>
+                    <div class="product-name">Physical Album + Bonus</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 350.000,00</div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">🎵</div>
+                    <div class="product-name">Limited Edition</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 450.000,00</div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">🎶</div>
+                    <div class="product-name">Collector's Edition</div>
+                    <div class="product-price">IDR</div>
+                    <div class="product-amount">Rp. 600.000,00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Hide all tab contents
+                tabContents.forEach(content => {
+                    content.style.display = 'none';
+                });
+
+                // Show corresponding tab content
+                const tabId = tab.getAttribute('data-tab');
+                const targetContent = document.getElementById(tabId);
+                if (targetContent) {
+                    targetContent.style.display = 'block';
+                    // Reset animation
+                    const grid = targetContent.querySelector('.product-grid');
+                    grid.style.animation = 'none';
+                    setTimeout(() => {
+                        grid.style.animation = 'fadeInUp 0.6s ease forwards';
+                    }, 10);
+                }
+            });
+        });
+
+        // Add click effects to product cards
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Add a pulse effect
+                card.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    card.style.transform = '';
+                }, 100);
+                
+                // You can add more functionality here, like opening a modal or redirecting
+                console.log('Product clicked:', card.querySelector('.product-name').textContent);
+            });
+        });
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate cards on load
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

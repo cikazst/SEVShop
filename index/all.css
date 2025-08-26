@@ -794,29 +794,6 @@ a:hover {
 
 
         /* bagiian displaay produk artis */
-
-      .artist-hero-wrapper {
-  display: flex;
-  justify-content: center; /* biar rata tengah */
-  align-items: center;
-  gap: 20px; /* jarak antar gambar */
-  margin-top: 35px;
-}
-
-.artist-hero-item {
-  flex: 1; 
-  max-width: 40%; 
-}
-
-.artist-hero-image {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-}
-
-
-      
-
         /*FOOTER (HARUS DIBAWAH)*/
 
 .footer {
