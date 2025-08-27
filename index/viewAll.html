@@ -5,8 +5,348 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEV Shop | Best Seller </title>
     <link rel="icon" type="image/png" href="/logo/favicon.png"/>
+    
+    <style>
+        .navbar {
+  background-color: #FFE6E6;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.kotak-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  
+}
+/* Logo */
+.navbar-brand img {
+  height: 40px;
+  width: 145px;
+}
+
+/* Search Bar */
+.search-bar {
+  flex-grow: 1;
+  margin: 0 30px;
+}
+
+.search-wrap {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 15px 10px 40px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 14px;
+  color: #333;
+}
+
+/* Right Menu */
+.navbar-options {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-wishlist, .icon-cart {
+  font-size: 20px;
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.icon-wishlist:hover {
+  color: #000;
+}
+
+.login-button {
+  padding: 8px 16px;
+  border: 1px solid #333;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* 
+footer */
+
+.footer {
+            background: linear-gradient(135deg, #a8c8ec 0%, #7fb3d3 100%);
+            padding: 40px 20px 20px 20px;
+            color: #000000;
+            margin-bottom: 0%;
+            max-width: 100%;
+        }
+
+        .footer-container {
+            max-width: 100% !important;
+            margin: 0 auto;
+            
+        }
+
+        .footer-logo {
+          margin-top: 0%;
+             display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 0px;
+            margin-bottom: 10px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .footer-section p {
+            color: #000000;
+            font-size: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            color: black;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: medium;
+            ;
+        }
+
+        .footer-section ul li a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #2c3e50;
+            text-decoration: underline;
+        }
+
+        .contact-info {
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        .footer-sosial {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-size: 24px 24px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .social-icon img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .social-icon:hover {
+            background-color: #34495e;
+            transform: translateY(-2px);
+        }
+
+
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 20px;
+            text-align: center;
+            color: #4a5568;
+            font-size: 12px;
+        }
+
+        .location {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .footer-bottom p {
+            margin: 0;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+
+    </style>
 </head>
 <body>
-    
+    <nav class="navbar">
+  <div class="kotak-navbar">
+
+    <!-- Logo -->
+    <a class="navbar-brand" href="beranda.html">
+      <img src="/logo/Shopnavbar-removebg-preview.png" alt="Logo" width="auto" height="45">
+    </a>
+
+    <!-- Search bar -->
+         <form class="search-bar">
+           <div class="search-wrap">
+             <i class="search-icon bi bi-search"></i>
+             <input type="search" class="search-input" 
+                    placeholder="Search Product or Artist" 
+                    aria-label="Search">
+           </div>
+         </form>
+         
+         <div class="navbar-options" style="height: 40px;">
+           <a href="#" class="icon-wishlist" title="Wishlist">
+             <i class="bi bi-heart"></i>
+           </a>
+           <a href="#" class="icon-cart" title="Cart">
+             <i class="bi bi-cart2"></i>
+           </a>
+           <a href="login.html" class="login-button" title="Log In">
+             Log In
+           </a>
+     </div>
+  </div>
+</nav>
+
+
+
+
 </body>
+<!-- Footer -->
+   <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="beranda.html" class="logo">
+                    <img src="/logo/Shop-removebg-preview.png" alt="SEV Shop Logo">
+                </a>
+            </div>
+
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>SEV Shop adalah tempat andalan untuk official merchandise K-pop.
+ Kami berkomitmen untuk menghadirkan merchandise terbaik dan terjamin langsung ke tanganmu.</p>
+                </div>
+
+                <div class="footer-section">
+                    <ul>
+                        <li><a href="#refund">Layanan Pelanggan</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#privacy">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <ul>
+                        <li><a href="#refund">Kebijakan Refund</a></li>
+                        <li><a href="#order">Cara Memesan</a></li>
+                        <li><a href="#terms">Syarat dan Ketentuan</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <p>Contact Us</p>
+                    <div class="contact-info">
+                        <p>SEVShop@gmail.com</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="footer-sosial">
+                        <div class="social-icons">
+                        <a href="#" class="social-icon ">
+                            <img src="/logo/instagram.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
+                        <a href="#" class="social-icon ">
+                            <img src="/logo/icons8-shopee-50.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
+                        </a>
+                        <a href="#" class="social-icon ">
+                            <img src="/logo/twitter-alt.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <img src="/logo/social.png" alt="" srcset="" style="width: 50px; height: auto;"></a>
+                        </a>
+                    </div>
+            </div>
+           
+
+            <div class="footer-bottom">
+                <div class="location">Based on Banyuwangi, East Java</div>
+                <div>© 2025 SEV Shop. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
 </html>
