@@ -1,1 +1,1 @@
-website catalog for kpop merch
+SEV Shop  is website catalog for kpop merch
