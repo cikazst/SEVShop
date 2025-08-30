@@ -195,8 +195,9 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20PX; !important
+            animation: fadeInUp 0.6s ease forwards;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.6s ease forwards;
@@ -215,6 +216,7 @@
             text-align: center;
             background: white;
             box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
         }
 
 
@@ -225,8 +227,8 @@
 
         .product-image {
         width: 100%;
-        max-width: 200px;   
-        max-height: 200px;  
+        max-width: 230px;   
+        max-height: 230px;  
         margin: 0 auto 15px; 
         display: flex;
         }
@@ -239,13 +241,13 @@
 
         .product-name {
             font-weight: 600;
-            color: #333;
+            color: #000000;
             margin-bottom: 10px;
             font-size: 14px;
         }
 
         .product-price {
-            color: #666;
+            color: #070707;
             font-size: 12px;
             margin-bottom: 5px;
         }
@@ -521,47 +523,13 @@
                     <div class="product-price">IDR</div>
                     <div class="product-amount">Rp. 220.000,00</div>
                 </div>
-                
+
                 <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">10cm Doll</div>
+                    <div class="product-image"><img src="/produk cover/removable luggage sticker.png" alt="" srcset=""></div>
+                    <div class="product-name">Removable Luggage Sticker</div>
                     <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
-                </div>
-                
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
-                </div>
-                
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
-                </div>
-                
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
-                </div>
-                
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
-                </div>
-                
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
+                    <div class="product-amount">Rp. 90.000,00</div>
+
                 </div>
             </div>
         </div>
@@ -569,56 +537,35 @@
         <div id="membership" class="tab-content" style="display: none;">
             <div class="product-grid">
                 <div class="product-card special-card">
-                    <div class="product-image">👑</div>
-                    <div class="product-name">VIP Membership</div>
+                    <div class="product-image"><img src="/produk cover/s2u membership.png"></div>
+                    <div class="product-name">S2U Membership</div>
                     <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 500.000,00</div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">⭐</div>
-                    <div class="product-name">Premium Membership</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 300.000,00</div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">💫</div>
-                    <div class="product-name">Basic Membership</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 150.000,00</div>
+                    <div class="product-amount">Rp. 395.000,00</div>
                 </div>
             </div>
         </div>
         
         <div id="album" class="tab-content" style="display: none;">
             <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image">💿</div>
-                    <div class="product-name">Digital Album</div>
+                <div class="product-card special-card">
+                    <div class="product-image"><img src="/produk cover/The 1st Single [The Chase] (Minibook Ver.)(SMART ALBUM) (Random).png"></div>
+                    <div class="product-name">The 1st Single [The Chase] (Minibook Ver.) (Random)</div>
                     <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 100.000,00</div>
+                    <div class="product-amount">Rp. 215.000,00</div>
                 </div>
                 
                 <div class="product-card special-card">
-                    <div class="product-image">📀</div>
-                    <div class="product-name">Physical Album + Bonus</div>
+                    <div class="product-image"><img src="/produk cover/The 1st Single [The Chase] (Package Ver.).png"></div>
+                    <div class="product-name">The 1st Single [The Chase] (Package Ver.)</div>
                     <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 350.000,00</div>
+                    <div class="product-amount">Rp. 290.000,00</div>
                 </div>
                 
-                <div class="product-card">
-                    <div class="product-image">🎵</div>
-                    <div class="product-name">Limited Edition</div>
+                <div class="product-card special-card">
+                    <div class="product-image"><img src="/produk cover/The 1st Single [The Chase] (Photobook Ver.) (Random).png"></div>
+                    <div class="product-name">The 1st Single [The Chase] (Photobook Ver.)</div>
                     <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 450.000,00</div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">🎶</div>
-                    <div class="product-name">Collector's Edition</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 600.000,00</div>
+                    <div class="product-amount">Rp. 200.000,00</div>
                 </div>
             </div>
         </div>
