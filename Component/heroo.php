@@ -1,3 +1,5 @@
+<?php include '../index/all.css'; ?>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500" >
   <div class="carousel-inner">
     <div class="carousel-item active">
