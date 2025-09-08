@@ -1,4 +1,5 @@
 <?php include '../Component/navbar.php'; ?> 
+<?php include '../Component/heroo.php'; ?>
 <?php include '../Component/footer.php'; ?>
 
 <div class="recart text-center fw-bold fs-4 mt-4">Recommended Artists</div>
