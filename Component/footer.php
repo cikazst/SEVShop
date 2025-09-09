@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="footer-section">
-                    <p>Contact Us</p>
+                    <p>Kontak Kami</p>
                     <div class="contact-info">
                         <p>SEVShop@gmail.com</p>
                     </div>

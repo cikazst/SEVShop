@@ -6,10 +6,13 @@
   <title>Album Merch Reviews</title>
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #B3CCE5;
+      background: linear-gradient(135deg, #a8c8ec 0%, #7fb3d3 100%);
+      min-height: 100vh;
     }
     .star {
       font-size: 1.2rem;
@@ -19,7 +22,135 @@
     .star.active {
       color: #ffc107;
     }
-    
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #6fa8d4;
+      margin-right: 15px;
+    }
+    #rating-summary {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    }
+    .rating-breakdown {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .rating-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .stars-label {
+      width: 60px;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .rating-bar {
+      flex: 1;
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      margin-right: 10px;
+      overflow: hidden;
+    }
+    .rating-fill {
+      height: 100%;
+      background: linear-gradient(to right, #ffd700, #ffc107);
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+    .rating-count {
+      font-size: 12px;
+      color: #666;
+      width: 40px;
+      text-align: right;
+    }
+    .review-item {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 5px 15px rgba(0,0,0,.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .review-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.1);
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .reviewer-info {
+      flex: 1;
+    }
+    .reviewer-name {
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+    .reviewer-stars .star {
+      color: #ffc107;
+      font-size: 16px;
+      margin-right: 2px;
+    }
+    .review-date {
+      color: #777;
+      font-size: 13px;
+      margin-left: auto;
+    }
+    .review-text {
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .review-helpful {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .helpful-btn {
+      background: #f0f2f5;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 15px;
+      font-size: 13px;
+      color: #555;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s;
+    }
+    .helpful-btn:hover {
+      background: #e4e6eb;
+    }
+    .helpful-btn.liked {
+      background: #4a90e2;
+      color: white;
+    }
+    .helpful-count {
+      font-size: 13px;
+      color: #777;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 16px;
+    }
   </style>
 </head>
 <body>
@@ -30,13 +161,13 @@
         
         <!-- Summary -->
         <div class="mb-4" id="rating-summary">
-          <h3 class="fw-bold">0.0</h3>
-          <p class="text-muted small">Berdasarkn 0 Reviews</p>
+          <h3 class="fw-bold mb-2">0.0</h3>
+          <p class="text-muted small mb-3">Berdasarkan 0 Reviews</p>
           <div id="summary-stars"></div>
         </div>
 
         <!-- Breakdown -->
-        <div id="rating-breakdown" class="mb-4"></div>
+        <div id="rating-breakdown" class="rating-breakdown"></div>
 
         <!-- Add Review Button -->
         <button class="btn btn-primary mb-4" data-bs-toggle="collapse" data-bs-target="#addReviewForm">
@@ -51,6 +182,10 @@
               <label class="form-label">Nama</label>
               <input type="text" id="reviewName" class="form-control" placeholder="Nama Anda">
             </div>
+            <!-- <div class="mb-3">
+              <label class="form-label">Avatar (URL Gambar)</label>
+              <input type="text" id="reviewAvatar" class="form-control" placeholder="Opsional, biarkan kosong">
+            </div> -->
             <div class="mb-3">
               <label class="form-label">Rating</label>
               <div id="ratingStars"></div>
@@ -74,12 +209,18 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Store reviews in memory instead of localStorage
     let reviews = [
-      { id: 1, user: "Tasya", date: "12 Mar 2024", rating: 5, comment: "Official and authentic, packaging very safe and got freebies!" },
-      { id: 2, user: "Rina", date: "10 Mar 2024", rating: 4, comment: "Good quality but shipping took a while." }
+      { id: 1, user: "orang keren", date: "12 Mar 2024", rating: 5, comment: "Freebiesnya banyak banget, good packaging!", avatar: "", helpful: 18, helpedBy: [] },
+      { id: 2, user: "manysa", date: "10 Mar 2024", rating: 4, comment: "bagus, barang sesuai deskripsi, packing rapi, pengiriman cepat", avatar: "/img/ava2.jpeg", helpful: 0, helpedBy: [] },
+      { id: 3, user: "orang aring", date: "10 Mar 2024", rating: 5, comment: "keren, aku dapet wishlist aku. makasih banget sev shop", avatar: "/img/ava2.jpeg", helpful: 22, helpedBy: [] }
     ];
+    
     let currentRating = 5;
+    let currentUserId = "user_" + Math.random().toString(36).substr(2, 9); // Simple user ID simulation
+    const defaultAvatar = "/img/ava1.jpeg";
 
+    // render bintang untuk rating
     function renderStars(rating, containerId, interactive=false) {
       const container = document.getElementById(containerId);
       container.innerHTML = "";
@@ -98,6 +239,7 @@
       }
     }
 
+    // hitung statistik
     function calculateStats() {
       const total = reviews.length;
       if (total === 0) return {average: 0, total: 0, percentages: {1:0,2:0,3:0,4:0,5:0}};
@@ -109,68 +251,145 @@
       for (let i=1; i<=5; i++) {
         percentages[i] = Math.round((counts[i]/total)*100);
       }
-      return {average, total, percentages};
+      return {average, total, percentages, counts};
     }
 
+    // render summary
     function renderSummary() {
       const stats = calculateStats();
-      document.querySelector("#rating-summary h3").innerText = stats.average;
-      document.querySelector("#rating-summary p").innerText = `Based on ${stats.total} Reviews`;
+      document.getElementById("rating-summary").innerHTML = `
+        <h3 class="fw-bold mb-2">${stats.average}</h3>
+        <p class="text-muted small mb-3">Berdasarkan ${stats.total} Reviews</p>
+        <div id="summary-stars"></div>
+      `;
       renderStars(Math.round(stats.average), "summary-stars");
-      
-      // Breakdown
-      let breakdown = document.getElementById("rating-breakdown");
-      breakdown.innerHTML = "";
-      for (let i=5; i>=1; i--) {
-        breakdown.innerHTML += `
-          <div class="d-flex align-items-center mb-1">
-            <span>${"★".repeat(i)}</span>
-            <div class="progress flex-grow-1 mx-2" style="height:8px;">
-              <div class="progress-bar bg-warning" role="progressbar" style="width: ${stats.percentages[i]}%"></div>
+    }
+
+    // render breakdown
+    function renderBreakdown() {
+      const stats = calculateStats();
+      let html = "";
+      for (let i = 5; i >= 1; i--) {
+        html += `
+          <div class="rating-row">
+            <div class="stars-label">${i} <i class="fas fa-star" style="color: #ffc107; font-size: 12px;"></i></div>
+            <div class="rating-bar">
+              <div class="rating-fill" style="width: ${stats.percentages[i]}%"></div>
             </div>
-            <small>${stats.percentages[i]}%</small>
+            <div class="rating-count">(${stats.counts[i] || 0})</div>
           </div>
         `;
       }
+      document.getElementById("rating-breakdown").innerHTML = html;
     }
 
+    // toggle helpful
+    function toggleHelpful(reviewId) {
+      const review = reviews.find(r => r.id === reviewId);
+      if (!review) return;
+      
+      const userIndex = review.helpedBy.indexOf(currentUserId);
+      if (userIndex === -1) {
+        // User hasn't liked it yet, add like
+        review.helpedBy.push(currentUserId);
+        review.helpful++;
+      } else {
+        // User already liked it, remove like
+        review.helpedBy.splice(userIndex, 1);
+        review.helpful--;
+      }
+      
+      renderReviews();
+    }
+
+    // render reviews
     function renderReviews() {
-      const list = document.getElementById("reviewsList");
-      list.innerHTML = "";
-      reviews.forEach(r => {
-        list.innerHTML += `
-          <div class="card mb-2">
-            <div class="card-body">
-              <div class="d-flex justify-content-between">
-                <div><strong>${r.user}</strong> ${"★".repeat(r.rating)}</div>
-                <small class="text-muted">${r.date}</small>
+      const container = document.getElementById("reviewsList");
+      if (reviews.length === 0) {
+        container.innerHTML = "<p class='text-center text-muted'>Belum ada review.</p>";
+        return;
+      }
+
+      let html = "";
+      reviews.forEach(review => {
+        const isLiked = review.helpedBy.includes(currentUserId);
+        const likedClass = isLiked ? "liked" : "";
+        
+        html += `
+          <div class="review-item">
+            <div class="review-header">
+              <img src="${review.avatar || defaultAvatar}" alt="Avatar" class="avatar">
+              <div class="reviewer-info">
+                <div class="reviewer-name">${review.user}</div>
+                <div class="reviewer-stars">
+                  ${Array(5).fill().map((_, i) => 
+                    `<span class="star"><i class="fas fa-star${i < review.rating ? '' : ' far'}"></i></span>`
+                  ).join('')}
+                </div>
               </div>
-              <p class="mb-0">${r.comment}</p>
+              <div class="review-date">${review.date}</div>
+            </div>
+            <div class="review-text">${review.comment}</div>
+            <div class="review-helpful">
+              <button class="helpful-btn ${likedClass}" onclick="toggleHelpful(${review.id})">
+                <i class="fas fa-thumbs-up"></i> Helpful
+              </button>
+              <span class="helpful-count">${review.helpful} people found this helpful</span>
             </div>
           </div>
         `;
       });
+      container.innerHTML = html;
     }
 
+    // tambah review
     function addReview() {
       const name = document.getElementById("reviewName").value.trim();
+      const avatar = document.getElementById("reviewAvatar").value.trim();
       const comment = document.getElementById("reviewComment").value.trim();
-      if (!name || !comment) return alert("Please fill all fields");
 
-      const today = new Date().toLocaleDateString("en-GB", {day:"2-digit", month:"short", year:"numeric"});
-      reviews.unshift({id: Date.now(), user: name, date: today, rating: currentRating, comment});
+      if (!name || !comment) {
+        alert("Nama dan komentar wajib diisi!");
+        return;
+      }
+
+      const newReview = {
+        id: reviews.length + 1,
+        user: name,
+        date: new Date().toLocaleDateString("id-ID", {day: "numeric", month: "short", year: "numeric"}),
+        rating: currentRating,
+        comment: comment,
+        avatar: avatar || defaultAvatar,
+        helpful: 0,
+        helpedBy: []
+      };
+
+      reviews.unshift(newReview);
+      
+      // reset form
       document.getElementById("reviewName").value = "";
+      document.getElementById("reviewAvatar").value = "";
       document.getElementById("reviewComment").value = "";
       currentRating = 5;
-      renderStars(currentRating, "ratingStars", true);
+      
+      // close form
+      const collapseElement = new bootstrap.Collapse(document.getElementById("addReviewForm"));
+      collapseElement.hide();
+      
+      // render ulang
+      renderAll();
+    }
+
+    // render semua
+    function renderAll() {
       renderSummary();
+      renderBreakdown();
       renderReviews();
     }
 
-    // Initial render
+    // inisialisasi
     renderStars(currentRating, "ratingStars", true);
-    renderSummary();
-    renderReviews();
+    renderAll();
   </script>
 </body>
 </html>

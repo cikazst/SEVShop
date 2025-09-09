@@ -1,6 +1,12 @@
-<?php include '../index/all.css'; ?>
-
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500" >
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="all.css">
+</head>
+<body>
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500" >
   <div class="carousel-inner">
     <div class="carousel-item active">
       <a href="#">
@@ -26,3 +32,5 @@
   <span class="visually-hidden">Next</span>
   </button>
 </div>
+</body>
+</html>
