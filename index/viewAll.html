@@ -1,675 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEV Shop | Best Seller </title>
-    <link rel="icon" type="image/png" href="/logo/favicon.png"/>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-   <link rel="icon" type="image/png" href="/logo/favicon.png"/>
-    
-    <style>
-        .navbar {
-  background-color: #FFE6E6;
-  padding: 10px 20px;
-  position: sticky;
-  top: 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 100;
-}
-
-.kotak-navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  
-}
-/* Logo */
-.navbar-brand img {
-  height: 40px;
-  width: 145px;
-}
-
-/* Search Bar */
-.search-bar {
-  flex-grow: 1;
-  margin: 0 30px;
-}
-
-.search-wrap {
-  position: relative;
-}
-
-.search-icon {
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  transform: translateY(-50%);
-  color: #666;
-  font-size: 16px;
-  pointer-events: none;
-}
-
-.search-input {
-  width: 100%;
-  padding: 10px 15px 10px 40px;
-  border-radius: 50px;
-  border: none;
-  outline: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  font-size: 14px;
-  color: #333;
-}
-
-/* Right Menu */
-.navbar-options {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.icon-wishlist, .icon-cart {
-  font-size: 20px;
-  color: #333;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-}
-
-.icon-wishlist:hover {
-  color: #000;
-}
-
-.login-button {
-  padding: 8px 16px;
-  border: 1px solid #333;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #333;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-
-.login-btn:hover {
-  background-color: #333;
-  color: #fff;
-}
-
-
-
- #carouselExampleIndicators {
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  border-radius: 2px; 
-  overflow: hidden;
-}
-
-    .carousel-control-prev,
-.carousel-control-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
-  width: auto;
-  padding: 10px;
-  background: transparent;
-  border: none;
-}
-
-.carousel-control-prev {
-  left: 20px;
-}
-
-.carousel-control-next {
-  right: 20px;
-}
-
-.carousel-item img {
-  height: 400px;
-  width: auto;
-  object-fit: cover;
-}
-
- .container-produk {
-            margin: 40px auto;
-            background: #B3CCE5;
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            width: 100%;
-            max-width: 1000px;
-            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(70, 70, 70, 0.2);
-        }
-
-        .header {
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            color: rgb(0, 0, 0);
-            font-size: 28px;
-            font-weight:700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-
-        .tab {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .tab.active {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .tab:not(.active) {
-            background: rgba(245, 229, 229, 0.575);
-            color: black;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .tab:not(.active):hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-1px);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .product-card {
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-            background: white;
-            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-        }
-
-
-        .product-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-image {
-        width: 100%;
-        max-width: 200px;   
-        max-height: 200px;  
-        margin: 0 auto 15px; 
-        display: flex;
-        }
-
-        .product-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .product-name {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .product-price {
-            color: #666;
-            font-size: 12px;
-            margin-bottom: 5px;
-        }
-
-        .product-amount {
-            font-weight: bold;
-            color: #333;
-            font-size: 14px;
-        }
-
-        .special-card {
-            background: #F7CAC9;
-            color: rgb(0, 0, 0);
-        }
-
-        .special-card .product-image {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        .special-card .product-name,
-        .special-card .product-amount {
-            color: rgb(0, 0, 0);
-        }
-
-        .special-card .product-price {
-            color: rgba(0, 0, 0, 0.8);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .tabs {
-                flex-wrap: wrap;
-            }
-            
-            .product-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 15px;
-            }
-        }
-
-/* 
-footer */
-
-.footer {
-            background: linear-gradient(135deg, #a8c8ec 0%, #7fb3d3 100%);
-            padding: 40px 20px 20px 20px;
-            color: #000000;
-            margin-bottom: 0%;
-            max-width: 100%;
-        }
-
-        .footer-container {
-            max-width: 100% !important;
-            margin: 0 auto;
-
-        }
-
-        .footer-logo {
-          margin-top: 0%;
-             display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
-            width: 100%;
-        }
-
-        .logo {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 80px;
-            width: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover img {
-            transform: scale(1.05);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: 0px;
-            margin-bottom: 10px;
-            margin-left: 40px;
-        }
-
-        .footer-section h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-
-        .footer-section p {
-            color: #000000;
-            font-size: 16px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            color: black;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 8px;
-            font-size: 14px;
-            font-weight: medium;
-            ;
-        }
-
-        .footer-section ul li a {
-            color: #000000;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: #2c3e50;
-            text-decoration: underline;
-        }
-
-        .contact-info {
-            color: #4a5568;
-            font-size: 14px;
-        }
-
-        .footer-sosial {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            background: #ffffff;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            background-size: 24px 24px;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        .social-icon img {
-            width: 24px;
-            height: 24px;
-        }
-
-        .social-icon:hover {
-            background-color: #34495e;
-            transform: translateY(-2px);
-        }
-
-
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            padding-top: 20px;
-            text-align: center;
-            color: #4a5568;
-            font-size: 12px;
-        }
-
-        .location {
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        .footer-bottom p {
-            margin: 0;
-            font-size: 14px;
-            color: #4a5568;
-        }
-
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEV Shop | Best Seller</title>
+  <link rel="icon" type="image/png" href="/logo/favicon.png"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+  <style>
+    .konten-produk {
+      margin: 40px auto;
+      background: #B3CCE5;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      width: 100%;
+      max-width: 1000px;
+      box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(70, 70, 70, 0.2);
+    }
+
+    .judul-kategori {
+      margin-bottom: 30px;
+    }
+
+    .judul-kategori h1 {
+      color: rgb(0, 0, 0);
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .tab-menu {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .tombol-tab {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .tombol-tab.aktif {
+      background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .tombol-tab:not(.aktif) {
+      background: rgba(245, 229, 229, 0.575);
+      color: black;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .tombol-tab:not(.aktif):hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .grid-produk {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .tampilan-produk-kartu {
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      background: white;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .tampilan-produk-kartu:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .gambar-produk {
+      width: 100%;
+      max-width: 200px;
+      max-height: 200px;
+      margin: 0 auto 15px;
+      display: flex;
+    }
+
+    .gambar-produk img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .nama-produk {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .jenis-harga {
+      color: #666;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .harga-produk {
+      font-weight: bold;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .kartu-spesial {
+      background: #F7CAC9;
+      color: rgb(0, 0, 0);
+    }
+
+    .kartu-spesial .gambar-produk {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .kartu-spesial .nama-produk,
+    .kartu-spesial .harga-produk {
+      color: rgb(0, 0, 0);
+    }
+
+    .kartu-spesial .jenis-harga {
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    @media (max-width: 768px) {
+      .konten-produk {
+        padding: 20px;
+      }
+
+      .judul-kategori h1 {
+        font-size: 2rem;
+      }
+
+      .tab-menu {
+        flex-wrap: wrap;
+      }
+
+      .grid-produk {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <nav class="navbar">
-  <div class="kotak-navbar">
 
-    <!-- Logo -->
-    <a class="navbar-brand" href="index.html">
-      <img src="/logo/Shopnavbar-removebg-preview.png" alt="Logo" width="auto" height="45">
-    </a>
-
-    <!-- Search bar -->
-         <form class="search-bar">
-           <div class="search-wrap">
-             <i class="search-icon bi bi-search"></i>
-             <input type="search" class="search-input" 
-                    placeholder="Search Product or Artist" 
-                    aria-label="Search">
-           </div>
-         </form>
-         
-         <div class="navbar-options" style="height: 40px;">
-           <a href="#" class="icon-wishlist" title="Wishlist">
-             <i class="bi bi-heart"></i>
-           </a>
-           <a href="#" class="icon-cart" title="Cart">
-             <i class="bi bi-cart2"></i>
-           </a>
-           <a href="/index/login.html" class="login-button" title="Log In">
-             Log In
-           </a>
-     </div>
-  </div>
-</nav>
-
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500" >
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <a href="#">
-      <img src="/img/1.png" class="d-block w-100" alt="...">
-      </a>
+  <div class="konten-produk">
+    <div class="judul-kategori">
+      <h1>Best Seller</h1>
     </div>
-    <div class="carousel-item">
-      <a href="#">
-      <img src="/img/2.png" class="d-block w-100" alt="...">
-      </a>
-    </div>
-    <div class="carousel-item">
-      <a href="#"><img src="/img/3.png  " class="d-block w-100" alt="..."></a>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  <span class="visually-hidden">Previous</span>
-</button>
 
-<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  <span class="visually-hidden">Next</span>
-  </button>
-</div>
+    <div id="merch" class="tab-isi">
+      <div class="grid-produk">
 
- <div class="container-produk">
-        <div class="header">
-            <h1>Best Seller</h1>
-            
+        <div class="tampilan-produk-kartu kartu-spesial">
+          <div class="gambar-produk"><img src="/produk cover/10cm doll.png" alt=""></div>
+          <div class="nama-produk">Teenieping 10cm Doll</div>
+          <div class="jenis-harga">IDR</div>
+          <div class="harga-produk">Rp. 260.000,00</div>
         </div>
+
+        <div class="tampilan-produk-kartu kartu-spesial">
+          <div class="gambar-produk"><img src="/produk cover/cahol set.png" alt=""></div>
+          <div class="nama-produk">Photo Card Holder Set</div>
+          <div class="jenis-harga">IDR</div>
+          <div class="harga-produk">Rp. 220.000,00</div>
+        </div>
+
+       <div class="tampilan-produk-kartu kartu-spesial">
+          <div class="gambar-produk"><img src="/produk cover/cahol set.png" alt=""></div>
+          <div class="nama-produk">Photo Card Holder Set</div>
+          <div class="jenis-harga">IDR</div>
+          <div class="harga-produk">Rp. 220.000,00</div>
+        </div>
+
+        <div class="tampilan-produk-kartu kartu-spesial">
+          <div class="gambar-produk"><img src="/produk cover/cahol set.png" alt=""></div>
+          <div class="nama-produk">Photo Card Holder Set</div>
+          <div class="jenis-harga">IDR</div>
+          <div class="harga-produk">Rp. 220.000,00</div>
+        </div>
+
+        <div class="tampilan-produk-kartu kartu-spesial">
+          <div class="gambar-produk"><img src="/produk cover/cahol set.png" alt=""></div>
+          <div class="nama-produk">Photo Card Holder Set</div>
+          <div class="jenis-harga">IDR</div>
+          <div class="harga-produk">Rp. 220.000,00</div>
+        </div>
+
+         <div class="tampilan-produk-kartu kartu-spesial">
+          <div class="gambar-produk"><img src="/produk cover/10cm doll.png" alt=""></div>
+          <div class="nama-produk">Teenieping 10cm Doll</div>
+          <div class="jenis-harga">IDR</div>
+          <div class="harga-produk">Rp. 260.000,00</div>
+
+        </div> 
+        <div class="tampilan-produk-kartu kartu-spesial">
+          <div class="gambar-produk"><img src="/produk cover/10cm doll.png" alt=""></div>
+          <div class="nama-produk">Teenieping 10cm Doll</div>
+          <div class="jenis-harga">IDR</div>
+          <div class="harga-produk">Rp. 260.000,00</div>
+        </div>
+           <div class="tampilan-produk-kartu kartu-spesial">
+          <div class="gambar-produk"><img src="/produk cover/10cm doll.png" alt=""></div>
+          <div class="nama-produk">Teenieping 10cm Doll</div>
+          <div class="jenis-harga">IDR</div>
+          <div class="harga-produk">Rp. 260.000,00</div>
         
-        <div id="merch" class="tab-content">
-            <div class="product-grid">
-<div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/10cm doll.png" alt="" srcset=""></div>
-                    <div class="product-name">Teenieping 10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
-                </div>
-                
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">Photo Card Holder Set</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 220.000,00</div>
-                </div>
-                
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
-                </div>
-                
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
-                </div>
-
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/10cm doll.png" alt="" srcset=""></div>
-                    <div class="product-name">Teenieping 10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
-                </div>
-                
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">Photo Card Holder Set</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 220.000,00</div>
-                </div>
-                
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
-                </div>
-                
-                <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
-                </div>
-                
-    <div class="product-card special-card">
-                    <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                    <div class="product-name">10cm Doll</div>
-                    <div class="product-price">IDR</div>
-                    <div class="product-amount">Rp. 260.000,00</div>
+        </div>
+      </div>
     </div>
-                
-     <div class="product-card special-card">
-               <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                <div class="product-name">10cm Doll</div>
-                <div class="product-price">IDR</div>
-               <div class="product-amount">Rp. 260.000,00</div>
-    </div>
-                
-     <div class="product-card special-card">
-        <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                <div class="product-name">10cm Doll</div>
-                <div class="product-price">IDR</div>
-                <div class="product-amount">Rp. 260.000,00</div>
-    </div>
-                
-    <div class="product-card special-card">
-            <div class="product-image"><img src="/produk cover/cahol set.png" alt="" srcset=""></div>
-                <div class="product-name">10cm Doll</div>
-            <div class="product-price">IDR</div>
-        <div class="product-amount">Rp. 260.000,00</div>
-    </div>
- </div>
-</div>
-
- </div>
-
-
+  </div>
 
 </body>
-<!-- Footer -->
-   <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <a href="index.html" class="logo">
-                    <img src="/logo/Shop-removebg-preview.png" alt="SEV Shop Logo">
-                </a>
-            </div>
-
-            <div class="footer-content">
-                <div class="footer-section">
-                    <p>SEV Shop adalah tempat andalan untuk official merchandise K-pop.
- Kami berkomitmen untuk menghadirkan merchandise terbaik dan terjamin langsung ke tanganmu.</p>
-                </div>
-
-                <div class="footer-section">
-                    <ul>
-                        <li><a href="#refund">Layanan Pelanggan</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#privacy">Kebijakan Privasi</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <ul>
-                        <li><a href="#refund">Kebijakan Refund</a></li>
-                        <li><a href="#order">Cara Memesan</a></li>
-                        <li><a href="#terms">Syarat dan Ketentuan</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <p>Kontak Kami</p>
-                    <div class="contact-info">
-                        <p>SEVShop@gmail.com</p>
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="footer-sosial">
-                        <div class="social-icons">
-                        <a href="#" class="social-icon ">
-                            <img src="/logo/instagram.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
-                        <a href="#" class="social-icon ">
-                            <img src="/logo/icons8-shopee-50.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
-                        </a>
-                        <a href="#" class="social-icon ">
-                            <img src="/logo/twitter-alt.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <img src="/logo/social.png" alt="" srcset="" style="width: 50px; height: auto;"></a>
-                        </a>
-                    </div>
-            </div>
-           
-
-            <div class="footer-bottom">
-                <div class="location">Based on Banyuwangi, East Java</div>
-                <div>© 2025 SEV Shop. All rights reserved.</div>
-            </div>
-        </div>
-    </footer>
-
 </html>
