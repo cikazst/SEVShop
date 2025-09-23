@@ -1,8 +1,54 @@
-<?php include '../Component/navbar.php'; ?>
-<?php include '../Component/heroo.php'; ?>
+<!-- <?php include '../Component/bagianProduk.php'; ?>
 
+ <?php
+// Data Produk untuk Best Seller
+$bestSeller = [
+    [
+        "title" => "NANA bnb with SEVENTEEN",
+        "artist" => "SEVENTEEN",
+        "price" => 480000,
+        "image" => "/produk cover/nanabnb.png",
+        "badgeText" => "BEST",
+        "badgeClass" => "badge-best"
+    ],
+    [
+        "title" => "DESIRE : UNLEASH (Random)",
+        "artist" => "ENHYPEN",
+        "price" => 270000,
+        "image" => "/produk cover/desire unleash set.png",
+        "badgeText" => "BEST",
+        "badgeClass" => "badge-best"
+    ]
+];
 
-<div class="recart text-center fw-bold fs-4 mt-4">Recommended Artists</div>
+// Data Produk untuk New Arrival
+$newArrival = [
+    [
+        "title" => "[No Genre] (Board Game ver.) (Random)",
+        "artist" => "BOYNEXTDOOR",
+        "price" => 165000,
+        "image" => "/produk cover/no genre board game ver random.png",
+        "badgeText" => "NEW",
+        "badgeClass" => "badge-new"
+    ],
+    [
+        "title" => "'Go Back To The Future' (Ultimate Park Ver.)",
+        "artist" => "NCT DREAM",
+        "price" => 270000,
+        "image" => "/produk cover/dream gbttf.png",
+        "badgeText" => "NEW",
+        "badgeClass" => "badge-new"
+    ]
+];
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<?php require_once '../Component/header.php'; ?>
+<body>
+    <?php require_once '../Component/navbar.php'; ?>
+    <?php require_once '../Component/heroo.php'; ?>
+    <div class="recart text-center fw-bold fs-4 mt-4">Recommended Artists</div>
 <div class="iconArtist d-flex justify-content-center gap-3 flex-wrap mb-4 px-3">
   
   <a href="#" class="artist-item text-center">
@@ -44,8 +90,16 @@
     <img src="/logo/txt.jpeg" class="rounded-3" alt="TXT">
     <div class="artist">TXT</div>
   </a>
-  
+
 </div>
+
+<!-- <?php 
+// Render Best Seller
+renderProdukSection("BEST SELLER", "header-best", produkList: $bestSeller);
+
+// Render New Arrival
+renderProdukSection("LATEST RELEASE", "header-new", $newArrival);
+?> -->
 
 <!-- rekomendasi produk -->
  <div class="container-produk-display justify-content-center mb-5">
@@ -373,3 +427,5 @@
         </div>
     </div>
     <?php include '../Component/footer.php'; ?>
+</body>
+</html>

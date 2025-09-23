@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEV Shop Produk</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<?php
+include '../Component/header.php';
+?>
 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-   <link rel="icon" type="image/png" href="/logo/favicon.png"/>
-    <link rel="stylesheet" href="all.css">
+<?php include '../Component/navbar.php';
+?>
 
-    <style>
-      body{
-        font-family: 'Arial', sans-serif;
-        background-color: #f9f9f9;
-        color: #000000;
-      }
-    </style>
-</head>
-<body>
-
-<!-- main content`-->
 
 <div class="view-produk container mb-5 ">
     <div class="row">
@@ -239,7 +220,7 @@
     </div>
 
     <!-- Read More -->
-     <a href="reviewPage.html">
+     <a href="/index/reviewPage.html">
     <div class="read-more-btn">
       <button>Load More Reviews</button>
     </div></a>
@@ -326,82 +307,14 @@
             </div>
         </div>
     </div>
+</div>
 
 
-
-  
-   
-
-</body>
-
-  <!-- Footer -->
-   <footer class="footer col-md-12" style="position: absolute; width: 100%; left: 0;">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <a href="index.html" class="logo">
-                    <img src="/logo/Shop-removebg-preview.png" alt="SEV Shop Logo">
-                </a>
-            </div>
-
-            <div class="footer-content">
-                <div class="footer-section">
-                    <p>SEV Shop adalah tempat andalan untuk official merchandise K-pop.
- Kami berkomitmen untuk menghadirkan merchandise terbaik dan terjamin langsung ke tanganmu.</p>
-                </div>
-
-                <div class="footer-section">
-                    <ul>
-                        <li><a href="#refund">Layanan Pelanggan</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#privacy">Kebijakan Privasi</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <ul>
-                        <li><a href="#refund">Kebijakan Refund</a></li>
-                        <li><a href="#order">Cara Memesan</a></li>
-                        <li><a href="#terms">Syarat dan Ketentuan</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <p>Kontak Kami</p>
-                    <div class="contact-info">
-                        <p>SEVShop@gmail.com</p>
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="footer-sosial">
-                        <div class="social-icons">
-                        <a href="" class="social-icon ">
-                            <img src="/logo/instagram.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
-                        <a href="#" class="social-icon ">
-                            <img src="/logo/icons8-shopee-50.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
-                        </a>
-                        <a href="" class="social-icon ">
-                            <img src="/logo/twitter-alt.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <img src="/logo/social.png" alt="" srcset="" style="width: 50px; height: auto;"></a>
-                        </a>
-                    </div>
-            </div>
-           
-
-            <div class="footer-bottom">
-                <div class="location">Based on Banyuwangi, East Java</div>
-                <div>© 2025 SEV Shop. All rights reserved.</div>
-            </div>
-        </div>
-    </footer>
+    <?php include '../Component/footer.php';
+    ?>
 
 
-
-    
-    <script>
+   <script>
          let currentQuantity = 1;
          const basePrice = 270.000;
 
@@ -467,5 +380,3 @@
       // Implementation would fetch and display more reviews
     }
     </script>
-
-</html>

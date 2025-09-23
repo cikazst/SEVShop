@@ -1,0 +1,159 @@
+    .konten-produk {
+      margin: 40px auto;
+      background: #B3CCE5;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      width: 100%;
+      max-width: 1000px;
+      box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(70, 70, 70, 0.2);
+    }
+
+    .judul-kategori {
+      margin-bottom: 30px;
+    }
+
+    .judul-kategori h1 {
+      color: rgb(0, 0, 0);
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .tab-menu {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .tombol-tab {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .tombol-tab.aktif {
+      background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .tombol-tab:not(.aktif) {
+      background: rgba(245, 229, 229, 0.575);
+      color: black;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .tombol-tab:not(.aktif):hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .grid-produk {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .tampilan-produk-kartu {
+      padding: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+      background: white;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .tampilan-produk-kartu:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .gambar-produk {
+      width: 100%;
+      max-width: 200px;
+      max-height: 200px;
+      margin: 0 auto 15px;
+      display: flex;
+    }
+
+    .gambar-produk img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .nama-produk {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .jenis-harga {
+      color: #666;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .harga-produk-best {
+      font-weight: bold;
+      color: #1a1a1a;
+      font-size: 16px;
+    }
+
+    .kartu-spesial {
+      background: #F7CAC9;
+      color: rgb(0, 0, 0);
+    }
+
+    .kartu-spesial .gambar-produk {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .kartu-spesial .nama-produk,
+    .kartu-spesial .harga-produk {
+      color: rgb(0, 0, 0);
+    }
+
+    .kartu-spesial .jenis-harga {
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    @media (max-width: 768px) {
+      .konten-produk {
+        padding: 20px;
+      }
+
+      .judul-kategori h1 {
+        font-size: 2rem;
+      }
+
+      .tab-menu {
+        flex-wrap: wrap;
+      }
+
+      .grid-produk {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+      }
+    }
