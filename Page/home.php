@@ -93,13 +93,7 @@ $newArrival = [
 
 </div>
 
-<!-- <?php 
-// Render Best Seller
-renderProdukSection("BEST SELLER", "header-best", produkList: $bestSeller);
 
-// Render New Arrival
-renderProdukSection("LATEST RELEASE", "header-new", $newArrival);
-?> -->
 
 <!-- rekomendasi produk -->
  <div class="container-produk-display justify-content-center mb-5">
