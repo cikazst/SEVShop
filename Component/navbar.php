@@ -5,7 +5,7 @@
   <div class="kotak-navbar">
 
     <!-- Logo -->
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="../Page/home.php">
       <img src="/logo/Shopnavbar-removebg-preview.png" alt="Logo" width="auto" height="45">
     </a>
 
@@ -20,10 +20,10 @@
          </form>
          
          <div class="navbar-options" style="height: 40px;">
-           <a href="#" class="icon-wishlist" title="Wishlist">
+           <a href="../Page/maintenance.php" class="icon-wishlist" title="Wishlist">
              <i class="bi bi-heart"></i>
            </a>
-           <a href="#" class="icon-cart" title="Cart">
+           <a href="../Page/maintenance.php" class="icon-cart" title="Cart">
              <i class="bi bi-cart2"></i>
            </a>
            <a href="/index/login.html" class="login-button" title="Log In">
