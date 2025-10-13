@@ -11,6 +11,28 @@
    <link rel="icon" type="image/png" href="/logo/favicon.png"/>
    
    <style>
+.footer-social-img {
+    width: 30px;
+    height: auto;
+}
+.shopee-logo-img {
+    width: 30px;
+    height: auto;
+}
+.twitter-logo-img {
+    width: 30px;
+    height: auto;
+}
+.social-img-large {
+    width: 50px;
+    height: auto;
+}
+.tab-content:not(:first-of-type) {
+    display: none;
+}
+.tab-content[hidden] {
+    display: none;
+}
 
     .navbar {
   background-color: #FFE6E6;
@@ -70,6 +92,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  height: 40px;
 }
 
 .icon-wishlist, .icon-cart {
@@ -136,6 +159,7 @@
   .container-produk {
             margin: 40px auto;
             background: #B3CCE5;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 30px;
@@ -465,8 +489,7 @@
                     aria-label="Search">
            </div>
          </form>
-         
-         <div class="navbar-options" style="height: 40px;">
+         <div class="navbar-options">
            <a href="#" class="icon-wishlist" title="Wishlist">
              <i class="bi bi-heart"></i>
            </a>
@@ -477,6 +500,7 @@
              Log In
            </a>
      </div>
+     </div>
   </div>
 </nav>
 
@@ -486,10 +510,11 @@
 <div class="artist-hero-section">
   <div class="artist-hero-wrapper">
     <div class="artist-hero-item">
-      <a href="#">
-      <img src="/produk cover/heroteenieping.png" alt="Artist Banner" class="artist-hero-image">
-    </div>
-  </a>
+  <a href="#" title="Teenieping Artist">
+  <img src="/produk cover/heroteenieping.png" alt="Teenieping Artist Banner" class="artist-hero-image">
+  <span class="visually-hidden">Teenieping Artist</span>
+</a>
+</div>
     <div class="artist-hero-item">
       <a href="#">
       <img src="/produk cover/hers2u.png" alt="Artist Banner" class="artist-hero-image">
@@ -531,10 +556,10 @@
                     <div class="product-amount">Rp. 90.000,00</div>
 
                 </div>
-            </div>
+        <div id="membership" class="tab-content">
         </div>
         
-        <div id="membership" class="tab-content" style="display: none;">
+        <div id="membership" class="tab-content" hidden>
             <div class="product-grid">
                 <div class="product-card special-card">
                     <div class="product-image"><img src="/produk cover/s2u membership.png"></div>
@@ -542,10 +567,10 @@
                     <div class="product-price">IDR</div>
                     <div class="product-amount">Rp. 395.000,00</div>
                 </div>
-            </div>
+        <div id="album" class="tab-content">
         </div>
         
-        <div id="album" class="tab-content" style="display: none;">
+        <div id="album" class="tab-content">
             <div class="product-grid">
                 <div class="product-card special-card">
                     <div class="product-image"><img src="/produk cover/The 1st Single [The Chase] (Minibook Ver.)(SMART ALBUM) (Random).png"></div>
@@ -610,19 +635,19 @@
                     
                 </div>
             </div>
-
+                            <img src="/logo/instagram.png" alt="" srcset="" class="footer-social-img"></a>
             <div class="footer-sosial">
-                        <div class="social-icons">
+                            <img src="/logo/icons8-shopee-50.png" alt="Shopee logo orange shopping bag with white S in the center representing the Shopee online marketplace brand" srcset="" class="shopee-logo-img">
                         <a href="#" class="social-icon ">
-                            <img src="/logo/instagram.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
-                        <a href="#" class="social-icon ">
-                            <img src="/logo/icons8-shopee-50.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
+                            <img src="/logo/instagram.png" alt="" srcset="" class="footer-social-img"></a>
+                            <img src="/logo/twitter-alt.png" alt="" srcset="" class="twitter-logo-img"></a>
+                            <img src="/logo/icons8-shopee-50.png" alt="Shopee logo orange shopping bag with white S in the center representing the Shopee online marketplace brand" srcset="" class="shopee-logo-img">
                         </a>
-                        <a href="#" class="social-icon ">
-                            <img src="/logo/twitter-alt.png" alt="" srcset="" style="width: 30px; height: auto;"></a>
+                            <img src="/logo/social.png" alt="" srcset="" class="social-img-large"></a>
+                            <img src="/logo/twitter-alt.png" alt="" srcset="" class="twitter-logo-img"></a>
                         </a>
                         <a href="#" class="social-icon">
-                            <img src="/logo/social.png" alt="" srcset="" style="width: 50px; height: auto;"></a>
+                            <img src="/logo/social.png" alt="" srcset="" class="social-img-large"></a>
                         </a>
                     </div>
             </div>
