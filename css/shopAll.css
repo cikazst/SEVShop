@@ -1,7 +1,7 @@
     .konten-produk {
       margin: 40px auto;
       background: #B3CCE5;
-      backdrop-filter: blur(10px);
+      /* backdrop-filter: blur(10px); */
       border-radius: 20px;
       padding: 30px;
       width: 100%;

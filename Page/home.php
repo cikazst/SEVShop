@@ -44,7 +44,7 @@ $newArrival = [
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once '../Component/header.php'; ?>
+<?php include '../Component/head.php'; ?>
 <body>
     <?php require_once '../Component/navbar.php'; ?>
     <?php require_once '../Component/heroo.php'; ?>
