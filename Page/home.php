@@ -155,7 +155,7 @@ $newArrival = [
                     </div>
                 </div>
                 </a>
-                <a href="/index/produk.html">
+                <a href="detailProduk.php">
                 <div class="col">
                     <div class="card product-card h-100">
                         <div class="best-badge">BEST</div>

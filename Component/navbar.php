@@ -1,5 +1,3 @@
-
-</head>
 <body>
   <nav class="navbar">
   <div class="kotak-navbar">
@@ -33,4 +31,3 @@
   </div>
 </nav>
 </body>
-</html>
